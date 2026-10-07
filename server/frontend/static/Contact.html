@@ -4,36 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Required CSS files -->
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/bootstrap.min.css">
 
-    <title>Contact Us - Best Cars Dealership</title>
+    <title>Best Cars Dealership</title>
 </head>
 
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/static/Home.html">
-                Best Cars Dealership
+        <div class="container-fluid px-4">
+
+            <a class="navbar-brand fw-bold" href="/">
+                Dealerships
             </a>
 
-            <button class="navbar-toggler" type="button"
+            <button class="navbar-toggler"
+                    type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+
+                <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/static/Home.html">
+                        <a class="nav-link active" href="/">
                             Home
                         </a>
                     </li>
@@ -45,133 +44,174 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active"
-                           aria-current="page"
-                           href="/static/Contact.html">
+                        <a class="nav-link" href="/static/Contact.html">
                             Contact Us
                         </a>
                     </li>
 
                 </ul>
+
+                <div>
+                    <a href="/djangoapp/login" class="text-dark me-2">
+                        Login
+                    </a>
+                    <a href="/static/Register.html" class="text-dark">
+                        Register
+                    </a>
+                </div>
+
             </div>
         </div>
     </nav>
 
 
-    <!-- Contact Us Section -->
+    <!-- Welcome Section -->
     <div class="container my-5">
 
-        <div class="text-center mb-4">
-            <h1 class="fw-bold">Contact Us</h1>
-            <p class="lead">
-                Get in touch with Best Cars Dealership for your dream car.
-            </p>
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+
+                <h1 class="display-5 fw-bold">
+                    Welcome to our Dealerships!
+                </h1>
+
+                <p class="lead mt-3">
+                    Find the best cars and trusted dealerships in one place.
+                </p>
+
+                <a href="#dealerships"
+                   class="btn btn-primary btn-lg mt-3">
+                    View Dealerships
+                </a>
+
+            </div>
         </div>
 
-        <!-- Required project image -->
-        <div class="text-center mb-4">
-            <img src="/static/cars.jpeg"
-                 onerror="this.onerror=null; this.src='/static/contactus.png';"
-                 alt="Cars"
-                 class="img-fluid rounded shadow"
-                 style="max-height: 350px;">
-        </div>
+    </div>
+
+
+    <!-- Dealerships Section -->
+    <section id="dealerships" class="container my-5">
+
+        <h2 class="text-center fw-bold mb-4">
+            Our Dealerships
+        </h2>
 
         <div class="row">
 
-            <!-- Contact Details -->
-            <div class="col-md-6 mb-4">
+            <!-- Dealer 1 -->
+            <div class="col-md-4 mb-4">
 
-                <h3 class="mb-3">Contact Information</h3>
+                <div class="card h-100 shadow-sm">
 
-                <p>
-                    <strong>Address:</strong><br>
-                    5057 Pankratz Hill,<br>
-                    San Antonio, Texas 78225
-                </p>
+                    <div class="card-body">
 
-                <p>
-                    <strong>Phone:</strong><br>
-                    +1 210-555-0145
-                </p>
+                        <h4 class="card-title">
+                            Tempsoft Car Dealership
+                        </h4>
 
-                <p>
-                    <strong>Email:</strong><br>
-                    support@bestcarsdealership.com
-                </p>
+                        <p class="card-text">
+                            <strong>Address:</strong><br>
+                            5057 Pankratz Hill<br>
+                            San Antonio, Texas 78225
+                        </p>
 
-                <p>
-                    <strong>Business Hours:</strong><br>
-                    Monday - Saturday: 9:00 AM - 7:00 PM<br>
-                    Sunday: Closed
-                </p>
+                        <p class="card-text">
+                            <strong>State:</strong> Texas
+                        </p>
+
+                        <p class="card-text">
+                            Trusted dealership offering quality
+                            vehicles and excellent customer service.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <!-- Contact Message -->
-            <div class="col-md-6 mb-4">
+            <!-- Dealer 2 -->
+            <div class="col-md-4 mb-4">
 
-                <h3 class="mb-3">Get in Touch</h3>
+                <div class="card h-100 shadow-sm">
 
-                <p>
-                    We are here to help you find the right vehicle.
-                    Contact us for more information about our cars,
-                    dealership services, test drives, and vehicle purchases.
-                </p>
+                    <div class="card-body">
 
-                <div class="card shadow-sm p-4">
+                        <h4 class="card-title">
+                            Bytecard Car Dealership
+                        </h4>
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">
-                            Name
-                        </label>
-                        <input type="text"
-                               class="form-control"
-                               id="name"
-                               placeholder="Enter your name">
+                        <p class="card-text">
+                            <strong>Address:</strong><br>
+                            288 Larry Place<br>
+                            Topeka, Kansas 66642
+                        </p>
+
+                        <p class="card-text">
+                            <strong>State:</strong> Kansas
+                        </p>
+
+                        <p class="card-text">
+                            Explore a wide range of vehicles
+                            with reliable dealership services.
+                        </p>
+
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
-                            Email
-                        </label>
-                        <input type="email"
-                               class="form-control"
-                               id="email"
-                               placeholder="Enter your email">
-                    </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="message" class="form-label">
-                            Message
-                        </label>
-                        <textarea class="form-control"
-                                  id="message"
-                                  rows="4"
-                                  placeholder="Enter your message"></textarea>
-                    </div>
+            </div>
 
-                    <button type="button" class="btn btn-primary">
-                        Send Message
-                    </button>
+
+            <!-- Dealer 3 -->
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h4 class="card-title">
+                            Best Cars Dealership
+                        </h4>
+
+                        <p class="card-text">
+                            <strong>Location:</strong><br>
+                            United States
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Service:</strong>
+                            Car Sales & Customer Support
+                        </p>
+
+                        <p class="card-text">
+                            Your destination for quality cars,
+                            trusted service, and a great buying experience.
+                        </p>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-    </div>
+
+    </section>
 
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3">
+    <footer class="bg-light text-center py-4 mt-5">
+
         <p class="mb-0">
             © 2026 Best Cars Dealership. All Rights Reserved.
         </p>
+
     </footer>
 
-    <!-- Bootstrap JavaScript -->
+
     <script src="/static/bootstrap.bundle.min.js"></script>
 
 </body>

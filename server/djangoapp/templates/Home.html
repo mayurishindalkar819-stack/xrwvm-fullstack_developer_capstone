@@ -32,10 +32,10 @@
             font-size: 18px;
         }
 
-        .login {
+        .user-area {
             float: right;
             font-size: 17px;
-            color: black;
+            font-weight: bold;
         }
 
         .hero {
@@ -46,6 +46,13 @@
         .hero h1 {
             font-size: 30px;
             margin-bottom: 8px;
+        }
+
+        .filter-title {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .dealers {
@@ -79,9 +86,22 @@
             margin: 3px 0;
         }
 
-        .section-title {
+        .review-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #10c4c9;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .no-results {
             text-align: center;
-            margin-bottom: 18px;
+            padding: 30px;
+            font-weight: bold;
+            display: none;
         }
     </style>
 </head>
@@ -98,8 +118,8 @@
             <a href="/static/Contact.html">Contact Us</a>
         </span>
 
-        <span class="login">
-            Login/Register
+        <span class="user-area">
+            Logged in as: mayuri
         </span>
     </nav>
 
@@ -107,15 +127,18 @@
     <div class="hero">
         <h1>Welcome to our Dealerships!</h1>
         <p>Find trusted car dealerships and explore available vehicles.</p>
+        <h3>Review Dealer</h3>
+    </div>
+
+    <div class="filter-title" id="filterMessage">
+        Available Dealerships
     </div>
 
     <!-- Dealers -->
     <section class="dealers">
 
-        <h2 class="section-title">Available Dealerships</h2>
-
         <!-- Dealer 1 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Texas">
             <h3>Dealer ID: 1 — Holdlamis Car Dealership</h3>
 
             <div class="dealer-info">
@@ -124,10 +147,14 @@
                 <p><strong>Address:</strong> 3 Nova Court</p>
                 <p><strong>ZIP:</strong> 88563</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/1">
+                Review Dealer
+            </a>
         </div>
 
         <!-- Dealer 2 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Minnesota">
             <h3>Dealer ID: 2 — Temp Car Dealership</h3>
 
             <div class="dealer-info">
@@ -136,10 +163,14 @@
                 <p><strong>Address:</strong> 6337 Butternut Crossing</p>
                 <p><strong>ZIP:</strong> 55402</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/2">
+                Review Dealer
+            </a>
         </div>
 
         <!-- Dealer 3 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Alabama">
             <h3>Dealer ID: 3 — Sub-Ex Car Dealership</h3>
 
             <div class="dealer-info">
@@ -148,10 +179,14 @@
                 <p><strong>Address:</strong> 9477 Twin Pines Center</p>
                 <p><strong>ZIP:</strong> 35285</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/3">
+                Review Dealer
+            </a>
         </div>
 
         <!-- Dealer 4 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Texas">
             <h3>Dealer ID: 4 — Solarbreeze Car Dealership</h3>
 
             <div class="dealer-info">
@@ -160,10 +195,14 @@
                 <p><strong>Address:</strong> 85800 Hazelcrest Circle</p>
                 <p><strong>ZIP:</strong> 75241</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/4">
+                Review Dealer
+            </a>
         </div>
 
         <!-- Dealer 5 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Maryland">
             <h3>Dealer ID: 5 — Regrant Car Dealership</h3>
 
             <div class="dealer-info">
@@ -172,10 +211,14 @@
                 <p><strong>Address:</strong> 93 Golf Course Pass</p>
                 <p><strong>ZIP:</strong> 21203</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/5">
+                Review Dealer
+            </a>
         </div>
 
         <!-- Dealer 15 -->
-        <div class="dealer-card">
+        <div class="dealer-card" data-state="Texas">
             <h3>Dealer ID: 15 — Tempsoft Car Dealership</h3>
 
             <div class="dealer-info">
@@ -184,9 +227,47 @@
                 <p><strong>Address:</strong> 5057 Pankratz Hill</p>
                 <p><strong>ZIP:</strong> 78225</p>
             </div>
+
+            <a class="review-btn" href="/djangoapp/reviews/dealer/15">
+                Review Dealer
+            </a>
+        </div>
+
+        <div class="no-results" id="noResults">
+            No dealers found for this state.
         </div>
 
     </section>
+
+    <!-- State Filter -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const selectedState = params.get("state");
+
+        const cards = document.querySelectorAll(".dealer-card");
+        const filterMessage = document.getElementById("filterMessage");
+        const noResults = document.getElementById("noResults");
+
+        if (selectedState) {
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                if (card.dataset.state.toLowerCase() === selectedState.toLowerCase()) {
+                    card.style.display = "block";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            filterMessage.textContent =
+                "Dealerships filtered by State: " + selectedState;
+
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
